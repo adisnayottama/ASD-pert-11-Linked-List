@@ -1,21 +1,34 @@
 package Pertemuan11;
-
+import java.util.Scanner;
 public class SLLMain02 {
     public static void main(String[] args) {
         SingleLinkedList02 sll = new SingleLinkedList02();
+        Scanner sc02 = new Scanner(System.in);
 
-        Mahasiswa02 mhs1 = new Mahasiswa02("24212200", "Alvaro", "1A", 4.0);
-        Mahasiswa02 mhs2 = new Mahasiswa02("23212201", "Bimon", "2B", 3.8);
-        Mahasiswa02 mhs3 = new Mahasiswa02("22212202", "Cintia", "3C", 3.5);
-        Mahasiswa02 mhs4 = new Mahasiswa02("21212203", "Dirga", "4D", 3.6);
+        System.out.print("Masukkan jumlah mahasiswa: ");
+        int jumlah = sc02.nextInt();
+        sc02.nextLine();
 
-        sll.print(); 
-        sll.addFirst(mhs4); 
-        sll.print(); 
-        sll.addLast(mhs1); 
+        for (int i = 0; i < jumlah; i++) {
+            System.out.println("\nData Mahasiswa ke-" + (i + 1));
+            System.out.print("NIM   : ");
+            String nim = sc02.nextLine();
+            System.out.print("Nama  : ");
+            String nama = sc02.nextLine();
+            System.out.print("Prodi : ");
+            String prodi = sc02.nextLine();
+            System.out.print("IPK   : ");
+            double ipk = sc02.nextDouble();
+            sc02.nextLine();
+            
+
+            Mahasiswa02 mhs = new Mahasiswa02(nim, nama, prodi, ipk);
+            sll.addLast(mhs);
+        }
+
+        System.out.println("\nData yang telah dimasukkan:");
         sll.print();
-        sll.insertAfter("Dirga", mhs3); 
-        sll.insertAt(2, mhs2); 
-        sll.print(); 
+
+        sc02.close();
     }
 }
